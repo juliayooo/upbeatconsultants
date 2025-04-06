@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/upbeat-logo.png">
+    <style>
+        .cv-container{
+            padding-left: 10vw;
+            padding-right: 10vw;;
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cv.html">CV</a>
+        <a href="curation.html">CURATIORIAL</a>
+        <a href="writing.html">WRITING</a>
+        <a href="music.html">MUSIC</a>
+        
+        
+
+    </nav>
+
+    <h1>CV</h1>
+    <div class="cv-container" id="cv-container">
+        <h3>Loading...</h3>
+</body>
+<script>
+
+     
+getData();
+
+
+async function getData() {
+try {
+    // Fetch data from Google Sheets
+    const x = "https://opensheet.elk.sh/1sFJ1kdgq0WjeCLlju9VVBNsqPBx2tbticnYe0c0qlfU/1";
+    let response = await fetch(x);
+    let data = await response.json();
+    console.log(data);
+
+    const page = document.getElementById("cv-container");
+    page.innerHTML = "<br>";
+    data.forEach((line) => {
+
+        // MAKE HEADINGS THAT START W * BOLD
+        if (line.cv.startsWith("*")){
+            const title = document.createElement("h3");
+            title.textContent = line.cv;
+            title.style.fontWeight = "bold";
+            title.textContent = line.cv.replace("*", "");
+            page.appendChild(title);
+
+        }
+        // ADD SPACING FOR SLASHES
+        else if(line.cv === "/"){
+            
+            page.innerHTML += "<br>";
+            
+
+        }
+        // PRINT OTHER LINES REGULAR
+        else if(line.cv !== "" && line.cv !== "/"){
+            const title = document.createElement("p");
+            title.textContent = line.cv;
+            page.appendChild(title);
+        }
+        
+    }
+
+);
+page.innerHTML += "<br><br><br>";
+} catch (error) {
+console.error("Error:", error);
+}
+};
+
+</script>
+</html>

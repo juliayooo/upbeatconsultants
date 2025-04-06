@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+body{
+    background: rgb(198,24,154);
+    background: radial-gradient(circle, rgba(198,24,154,0.7553615196078431) 11%, rgba(119,9,121,0.7609637605042017) 64%, rgba(134,0,255,0.7665660014005602) 100%);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.cabin-sketch-regular {
+    font-family: "Cabin Sketch", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    font-size: medium;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Cabin Sketch', serif;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  
+}
+h1{
+    font-family: 'Cabin Sketch', serif;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+
+}
+h3{
+    font-family: 'Cabin Sketch', serif;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-top: 80px;
+}
+p{
+    font-family: 'Cabin Sketch';
+    color: white;
+    line-height: 1.5;
+    font-size: 20px;
+    text-align: left;
+    font-weight: normal;
+}
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+}
+.bgimg{
+    width:100vw;
+    opacity: 0;
+    transition: opacity 2s ease-in;
+
+}
+.bg-img:hover .bgimg {
+opacity: 0.5;
+}
